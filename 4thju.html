@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var di=JSON.parse(sessionStorage.getItem("image"))
+
+
+        var d=document.createElement("div");
+
+       
+        d.style.width="1450px";
+        d.style.height="700px";
+d.style.border="solid";
+d.style.display="flex"
+d.style.flexWrap="wrap"
+        
+
+
+
+
+        var di1=document.createElement("div");
+        di1.style.width="50%";
+        
+        
+        var ti=document.createElement("h1");
+        ti.innerText=di.title;
+
+        var im=document.createElement("img");
+        im.src=di.image
+        im.style.width="500px";
+        im.style.height="500px";
+        im.style.marginLeft="20px"
+
+        var di2=document.createElement("div")
+        di2.style.width="50%"
+        var ti2=document.createElement("h1");
+        ti2.innerHTML="TYPE OF CLOTHING AND CATEGORY: <br>"+di.category.toUpperCase();
+        ti2.style.color="green"
+        
+        var ti3=document.createElement("h1");
+        ti3.innerText="About Product: "
+        var des=document.createElement("p");
+        des.innerText=di.description;
+        des.style.fontSize="larger";
+        des.style.fontFamily="Sans-serif"
+         
+
+        var h=document.createElement("hr");
+        h.style.width="700px"
+
+
+        var h1=document.createElement("hr");
+        h1.style.width="700px"
+
+        var ra=document.createElement("h1");
+        ra.innerText="RATING: "+di.rating.rate
+        var h2=document.createElement("hr");
+        h2.style.width="700px"
+
+        var ava=document.createElement("h1");
+        ava.innerText="AVAILABILITY: "+di.rating.count
+        ava.style.fontFamily="sans-serif"
+        var h3=document.createElement("hr");
+        h3.style.width="700px"
+
+        var but=document.createElement("button");
+        but.style.width="300px"
+        but.style.height="80px";
+        but.style.borderRadius="5px"
+        but.style.marginLeft="200px"
+        but.style.marginTop="50px";
+        but.innerText="$ "+di.price
+        but.style.fontSize="60px"
+
+
+          di1.appendChild(ti)
+          di1.appendChild(im)
+          
+           di2.appendChild(ti2)
+           di2.appendChild(h)
+           di2.appendChild(ti3)
+           di2.appendChild(des)
+           di2.appendChild(h1)
+
+           di2.appendChild(ra)
+           di2.appendChild(h2)
+            
+           di2.appendChild(ava)
+           di2.appendChild(h3)
+
+           di2.appendChild(but)
+          d.appendChild(di1)
+          d.appendChild(di2)
+        document.body.appendChild(d);
+
+    </script>
+</body>
+</html>

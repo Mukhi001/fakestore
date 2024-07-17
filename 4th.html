@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table,tr,td{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var d=[];
+        var count=sessionStorage.length;
+        for(var i=0;i<2*count;i++){
+            d.push(JSON.parse(sessionStorage.getItem("data"+i)))
+            
+        }
+        console.log(d)
+        var t=document.createElement("table");
+        
+
+        for(let i=0;i<d.length;i++){
+          
+        if(d[i]==null){
+          continue;
+        }
+
+        else{
+
+        
+        var tr1=document.createElement("tr");
+        
+        var td1=document.createElement("td");
+        td1.innerText=d[i]==null?"":d[i].id;
+        var td2=document.createElement("td");
+        td2.innerText=d[i]==null?"":d[i].description;
+        var td3=document.createElement("td")
+        td3.innerText=d[i]==null?"":d[i].price
+        var td4=document.createElement("td")
+        td4.innerText=d[i]==null?"":d[i].category
+        var td5=document.createElement("td")
+        td5.innerText=d[i]==null?"":d[i].title;
+        var td6=document.createElement("td");
+        var td7=document.createElement("img");
+        td7.src=d[i]==null?"":d[i].image;
+        td7.style.width="100px";
+        td7.style.height="100px"
+        td6.appendChild(td7)
+        var td8=document.createElement("td");
+
+        var but=document.createElement("button");
+        but.innerText="see more";
+        but.addEventListener("click",function(){
+          sessionStorage.setItem("image",JSON.stringify(d[i]));
+          window.location.assign("./4thju.html");
+        } )
+        
+        
+        var td9=document.createElement("td");
+        var td10=document.createElement("button");
+        
+          td10.innerText="clear item";
+        td10.addEventListener("click", function () {
+          sessionStorage.removeItem("data"+i);
+          window.location.assign("./4th.html")
+          
+        })
+        
+       
+
+        
+        td9.appendChild(td10)
+        td8.appendChild(but)
+       
+
+        tr1.appendChild(td1);
+        tr1.appendChild(td2);
+        tr1.appendChild(td3);
+        tr1.appendChild(td4);
+        tr1.appendChild(td5);
+        tr1.appendChild(td6);
+        tr1.appendChild(td8);
+        tr1.appendChild(td9)
+        t.appendChild(tr1);
+        }
+    
+        }
+       
+        document.body.appendChild(t)
+      
+     
+    </script>
+</body>
+</html>
