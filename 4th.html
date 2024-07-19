@@ -13,10 +13,9 @@
 <body>
     <script>
         var d=[];
-        var count=sessionStorage.length;
-        for(var i=0;i<2*count;i++){
+        var count=sessionStorage.length+sessionStorage.length;
+        for(var i=0;i<(count*count)+1;i++){
             d.push(JSON.parse(sessionStorage.getItem("data"+i)))
-            
         }
         console.log(d)
         var t=document.createElement("table");
